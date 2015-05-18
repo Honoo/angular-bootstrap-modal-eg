@@ -1,4 +1,4 @@
-# angular-bootstrap-modal-eg
+# Angular + Bootstrap Modal Example
 A simple example combining Angular.JS with Bootstrap Modal, intended to be a template for customization. This is an Angular app that keeps track of selected items and displays them in the modal. When the selection is changed, the display (of the modal and buttons) is changed accordingly. The selection is stored in LocalStorage, so it is persistent.
 
 Possible uses: The most obvious one is a primitive shopping cart. Basically, any use case which requires storing information about user choices across a website and persistently.
