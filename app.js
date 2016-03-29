@@ -41,14 +41,14 @@ var modal_app = angular.module('modal_app',[
 		var item = {};
 		item.id = $event.currentTarget.dataset.id;
 
-	    if(!localStorage['items']){ // user has not stored items before
-			items = {};
-			items[item.id] = item; // Stored as a key-value pair of ID:ItemObject
+	    if(!localStorage['items']){ // User has not stored items before
+  			items = {};
+  			items[item.id] = item; // Stored as a key-value pair of ID:ItemObject
 
-			localStorage.setItem('items',angular.toJson(items));
-			$scope.items.push(item);
-			$scope.updateModalButton();
-			angular.element($event.currentTarget).find(".select-text").html('Selected');
+  			localStorage.setItem('items',angular.toJson(items));
+  			$scope.items.push(item);
+  			$scope.updateModalButton();
+  			angular.element($event.currentTarget).find(".select-text").html('Selected');
 	    }
 	    else {
 		    items = JSON.parse(localStorage.getItem('items'));
@@ -56,10 +56,10 @@ var modal_app = angular.module('modal_app',[
 
 		    // If the item has been selected before, don't add it
 		    for (var oldItem in items){
-		        if(items[oldItem].id == item.id){
-		        	duplicate = true;
-		        	break;
-		        }
+	        if(items[oldItem].id == item.id){
+	        	duplicate = true;
+	        	break;
+	        }
 		    }
 
 		    if(!duplicate){
@@ -67,7 +67,7 @@ var modal_app = angular.module('modal_app',[
 		    	localStorage.setItem('items',angular.toJson(items));
 		    	$scope.items.push(item);
 		    	$scope.updateModalButton();
-				angular.element($event.currentTarget).find(".select-text").html('Selected');
+				  angular.element($event.currentTarget).find(".select-text").html('Selected');
 		    }
 	    }
 	};
@@ -92,11 +92,10 @@ var modal_app = angular.module('modal_app',[
 		$scope.updateModalButton();
 
 		// Update the items on the page
-	    angular.element(".select-btn").each(function(){
-	    	if(this.dataset.id == item.dataset.id){
-	    		angular.element(this).find(".select-text").html('Not Selected');
-	    	}
-	    });
-		
+    angular.element(".select-btn").each(function(){
+    	if(this.dataset.id == item.dataset.id){
+    		angular.element(this).find(".select-text").html('Not Selected');
+    	}
+    });
 	};
 });
